@@ -4,7 +4,7 @@ from blog.forms import PostForm, CommentForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (TemplateView, ListView,
                                     DetailView, CreateView,
-                                    UpdateView)#parenthesis to extend to multiple lines
+                                    UpdateView, DeleteView) #parenthesis to extend to multiple lines
 
 class AboutView(TemplateView):
     #TODO na brw ti einai kai apo pou erxetai to template_name
@@ -46,3 +46,8 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
     
     form_class = PostForm
     model = Post
+
+class PostDeleteView(LoginRequiredMixin, DeleteView):
+    model = Post
+    # Waits till the instance/object is deleted and then redirects the user to the success_url
+    success_url = reverse_lazy('post_list')
