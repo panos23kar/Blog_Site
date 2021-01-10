@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from blog.models import Post, Comment
-from django.views.generic import (TemplateView, ListView)#parenthesis to extend to multiple lines
+from django.views.generic import (TemplateView, ListView,
+                                    DetailView,)#parenthesis to extend to multiple lines
 
 class AboutView(TemplateView):
     #TODO na brw ti einai kai apo pou erxetai to template_name
@@ -21,3 +22,6 @@ class PostListView(ListView):
         # The underscore before the -published_date in order_by specifies if the ordering will be ascending or descending.
         # In this case descending
         return Post.objects.filter(published_date__lte=timezone.now(), order_by('-published_date'))
+
+class PostDetailView(DetailView):
+    model = Post
