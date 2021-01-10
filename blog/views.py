@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from blog.models import Post, Comment
+from blog.forms import PostForm, CommentForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (TemplateView, ListView,
-                                    DetailView,)#parenthesis to extend to multiple lines
+                                    DetailView, CreateView)#parenthesis to extend to multiple lines
 
 class AboutView(TemplateView):
     #TODO na brw ti einai kai apo pou erxetai to template_name
@@ -24,4 +26,15 @@ class PostListView(ListView):
         return Post.objects.filter(published_date__lte=timezone.now(), order_by('-published_date'))
 
 class PostDetailView(DetailView):
+    model = Post
+
+class CreatePostView(LoginRequiredMixin, CreateView):
+    # In order to create a Post you have to be loggedin
+
+    # Attr from LoginRequiredMixin: redirects you if you are not loggedin
+    login_url = '/login/'
+    # Attr from LoginRequiredMixin: redirects after you create a Post
+    redirect_field_name = 'blog/post_detail.html'
+    
+    form_class = PostForm
     model = Post
