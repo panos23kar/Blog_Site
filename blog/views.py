@@ -3,7 +3,8 @@ from blog.models import Post, Comment
 from blog.forms import PostForm, CommentForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (TemplateView, ListView,
-                                    DetailView, CreateView)#parenthesis to extend to multiple lines
+                                    DetailView, CreateView,
+                                    UpdateView)#parenthesis to extend to multiple lines
 
 class AboutView(TemplateView):
     #TODO na brw ti einai kai apo pou erxetai to template_name
@@ -34,6 +35,13 @@ class CreatePostView(LoginRequiredMixin, CreateView):
     # Attr from LoginRequiredMixin: redirects you if you are not loggedin
     login_url = '/login/'
     # Attr from LoginRequiredMixin: redirects after you create a Post
+    redirect_field_name = 'blog/post_detail.html'
+    
+    form_class = PostForm
+    model = Post
+
+class PostUpdateView(LoginRequiredMixin, UpdateView):
+    login_url = '/login/'
     redirect_field_name = 'blog/post_detail.html'
     
     form_class = PostForm
