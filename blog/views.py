@@ -63,8 +63,15 @@ class DraftListView(LoginRequiredMixin, ListView):
         return Post.objects.filter(published_date__isnull=True).order_by('created_date')
 
 
-##############################################################################################
-#####################################-----Comment----#########################################
+#####################################------Function Based Views-----#################################
+
+@login_required
+def post_publish(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.publish()
+    return redirect('post_detail', pk=pk)
+
+#####################################-----Comment----################################################
 
 #Decorator which allows only logged in users to access this view
 @login_required
