@@ -3,5 +3,17 @@
 
 {% block content %}
 
+    <h1>New Post</h1>
+
+    <form class="post-form" method="POST" >
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="save btn btn-default" type="submit" name="button"></button>
+
+    </form>
+
+    <script>var editor=new MediumEditor('.editable');</script>
+    {% comment %} '.editable' comes from blog\forms.py as widget {% endcomment %}
+
 
 {% endblock content %}
