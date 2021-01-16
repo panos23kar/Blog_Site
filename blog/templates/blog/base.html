@@ -34,19 +34,19 @@
                 <li><a class="nav-item px-3" href="https://www.linkedin.com/feed/">Linkedin</a></li>
             </ul>
 
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="navbar-nav navbar-right">
                 {% if user.is_authenticated %}
                 <li> 
-                    <a href="{% url 'post_new' %}">New Post</a>
+                    <a class="nav-item px-3" href="{% url 'post_new' %}">New Post</a>
                 </li>
                 <li> 
-                    <a href="{% url 'post_draft_list' %}">Drafts</a>
+                    <a class="nav-item px-3" href="{% url 'post_draft_list' %}">Drafts</a>
                 </li>
                 <li> 
-                    <a href="{% url 'logout' %}">Log Out</a>
+                    <a class="nav-item px-3" href="{% url 'logout' %}">Log Out</a>
                 </li>
                 <li>
-                    <a> Welcome: {{user.username}}</a>
+                    <a class="nav-item px-3"> Welcome: {{user.username}}</a>
                 </li>
 
                 {% else %}
