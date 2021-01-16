@@ -12,7 +12,7 @@
     <a  class="btn btn-primary" href="{% url 'post_publish' pk=post.pk %}" class="btn btn-default">Publish</a>
 {% endif %}
 
-<p class="postcontent">{{ post.title|safe|linebreaksbr}}</p> {% comment %} NOT Sure {% endcomment %}
+<p class="postcontent">{{ post.text|safe|linebreaksbr}}</p> {% comment %} NOT Sure {% endcomment %}
 
 {% if user.is_authenticated %}
     <a href="{% url 'post_edit'  pk=post.pk %}" class="btn btn-primary">
