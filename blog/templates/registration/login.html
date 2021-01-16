@@ -12,7 +12,7 @@
 
     <form action="{% url 'login' %}" method="POST">
         {% csrf_token %}
-        {% form.as_p %}
+        {{ form.as_p }}
         <input type="submit" class="btn btn-primary" value="Login">
         <!-- This has to do with the view that we are operating. it comes from  views.LoginView.as_view(). Check doc  -->
         <input type="hidden" name="next" value="{{next}}">
