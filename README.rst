@@ -11,7 +11,7 @@ The original idea of this project comes from the *First Clone Project*, which is
 Spicy Elements
 -------------------
 
-- **Class Based Views**: LoginRequiredMixin, LoginView, LogoutView DetailView, DeleteView, UdateView, TemplateView, ListView, CreateView  
+- **Class Based Views**: LoginRequiredMixin, LoginView, LogoutView, DetailView, DeleteView, UdateView, TemplateView, ListView, CreateView  
 - **Function Based Views** combined with *@login_required* decorator and goodies like *reverse_lazy, get_object_or_404 and redirect*
 - Django **Object-Relational Mapper (ORM)**
 - *App's urls* connnected with *project's urls* **(include)**
