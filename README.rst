@@ -16,7 +16,7 @@ Spicy Elements
 - Django **Object-Relational Mapper (ORM)**
 - *App's urls* connnected with *project's urls* **(include)**
 - Old school **Regular Expressions** instead of the convenient **slug**
-- Register my custom models via **admin** and creation of **Superuser**
+- Register custom models via **admin** and creation of a **Superuser** instance
 - **Extension** of templates using a **base.html** template and **loading of static** files
 - **for loops** and **conditional statement** in templates
 - Template **tags** and **filters**
